@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Midterm Practical Portion</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+	
+		<h2 style="color:lightsalmon; font-weight:bold; text-align:center">Welcome to Northeastern Illinois University and G&ES!</h3>
+	
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [41.9807, -87.7170],
+              zoom: 15
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 18,
+               minZoom: 18,
+            }).addTo(map);
+			
+			var bookIcon = L.icon({
+				iconUrl: 'book.png', // url that links to the icon image file
+				iconSize:     [38, 38], // size of the icon image in pixels
+				iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+				popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+			
+			var marker1 = L.marker([41.980584278, -87.7169456243], {icon: bookIcon}).addTo(map);
+			var marker2 = L.marker([41.98137430811343, -87.71907958386979], {icon: bookIcon}).addTo(map);
+			var marker3 = L.marker([41.98035881316247, -87.71915249865488], {icon: bookIcon}).addTo(map);
+			var marker4 = L.marker([41.9815413978756, -87.71906332967038], {icon: bookIcon}).addTo(map);
+			var marker5 = L.marker([41.98163796085765, -87.71812367005946], {icon: bookIcon}).addTo(map);
+			
+			var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/NEIU_Sci.jpg/1024px-NEIU_Sci.jpg" alt="BBH" width="250">';
+			var pic2 = '<img src="https://upload.wikimedia.org/wikipedia/commons/7/77/NEIU_3.jpg" alt="Student Union Square" width="250">';
+			var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/NEIU_Library_%28117983928%29.jpg" alt="Ronald Williams Library" width="250">';
+			var pic4 = '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/NEIU_Buddha_Head.jpg" alt="Buddha Head" width="250">';
+			var pic5 = '<img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Latte_and_dark_coffee.jpg" alt="Coffee" width="250">';
+
+			marker1.bindPopup('<p style="color:seagreen; font-weight:bold"> This is Bernard J. Brommel Hall (BBH). Most G&ES classes are held here! </p>' + pic1);
+			marker2.bindPopup('<p style="color:turquoise; font-weight:bold"> This is the NEIU Student Union. There is plenty to do here!</p>' + pic2);
+			marker3.bindPopup('<p style="color:purple; font-weight:bold"> This is the Ronald Williams Library. The staff here are extremely helpful!</p>' + pic3);
+			marker4.bindPopup('<p style="color:pink; font-weight:bold"> This is the NEIU Fine Arts Center Galley. Student and alumni can display their art here! We even have plenty of art around campus.</p>' + pic4);
+			marker5.bindPopup('<p style="color:maroon; font-weight:bold">This is Cafe Descartes. There is plenty of good food and coffee here. And good company too!</p>' + pic5);
+
+        </script>
+   </body>
+</html>
